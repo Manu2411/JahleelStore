@@ -7,7 +7,7 @@ const Home = () => {
       <Card
         title={`Jahleel's Store`}
         body='Bienvenido a Jahleel, su tienda en línea especializada en tacones, plataformas, zapatos y sandalias. Descubra nuestra exclusiva colección diseñada para realzar su estilo con elegancia y comodidad'
-        link='Ver Catálogo'
+        link='Ver Catálogos'
         ruta={routes.frontend.plataformas}
       />
     </div>
