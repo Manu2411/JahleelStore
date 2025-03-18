@@ -11,12 +11,19 @@ import ContactoPage from './pages/ContactoPage'
 function App() {
   const location = useLocation()
 
+  const movil = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+
   return (
     <>
       {location.pathname !== '/webpruebas' && <Navbar />}
       <Routes>
         <Route path={routes.frontend.home + '/*'} element={<HomePage />} />
-        <Route path={routes.frontend.plataformas + '/*'} element={<PlataformaPage />} />
+        <Route
+          path={routes.frontend.plataformas + '/*'}
+          element={<PlataformaPage isMobile={movil} />}
+        />
         <Route path={routes.frontend.sandalias + '/*'} element={<SandaliasPage />} />
         <Route path={routes.frontend.tacones + '/*'} element={<TaconesPage />} />
         <Route path={routes.frontend.zapatos + '/*'} element={<ZapatosPage />} />
