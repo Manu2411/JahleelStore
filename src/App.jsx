@@ -19,7 +19,10 @@ function App() {
     <>
       {location.pathname !== '/webpruebas' && <Navbar />}
       <Routes>
-        <Route path={routes.frontend.home + '/*'} element={<HomePage />} />
+        <Route
+          path={routes.frontend.home + '/*'}
+          element={<HomePage isMobile={movil} />}
+        />
         <Route
           path={routes.frontend.plataformas + '/*'}
           element={<PlataformaPage isMobile={movil} />}

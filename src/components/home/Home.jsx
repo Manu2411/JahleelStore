@@ -1,7 +1,7 @@
 import { routes } from '../../utils/routes'
 import Card from '../utils/Card'
 
-const Home = () => {
+const Home = ({ isMobile }) => {
   return (
     <div className='d-flex justify-content-center' style={{ marginTop: '200px' }}>
       <Card
@@ -10,6 +10,7 @@ const Home = () => {
         link='Ver Catálogos'
         ruta={routes.frontend.plataformas}
         isImage={true}
+        isMobile={isMobile}
       />
     </div>
   )

@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Card = (props) => {
+  const location = useLocation()
   const { title, body, link, ruta, isImage, imagen, isMobile } = props
 
   const style = {
-    width: !isMobile ? '275px' : '',
+    width: location.pathname !== '/webpruebas' && !isMobile ? '275px' : '',
   }
 
   return (
@@ -30,7 +31,14 @@ const Card = (props) => {
                 {link}
               </Link>
             ) : (
-              <button className='btn btn-outline-primary'>{link}</button>
+              <button
+                className='btn btn-outline-primary'
+                onClick={() => {
+                  alert('Se ha hecho click')
+                }}
+              >
+                {link}
+              </button>
             )}
           </>
         )}
