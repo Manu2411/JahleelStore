@@ -27,7 +27,10 @@ function App() {
           path={routes.frontend.plataformas + '/*'}
           element={<PlataformaPage isMobile={movil} />}
         />
-        <Route path={routes.frontend.sandalias + '/*'} element={<SandaliasPage />} />
+        <Route
+          path={routes.frontend.sandalias + '/*'}
+          element={<SandaliasPage isMobile={movil} />}
+        />
         <Route path={routes.frontend.tacones + '/*'} element={<TaconesPage />} />
         <Route path={routes.frontend.zapatos + '/*'} element={<ZapatosPage />} />
         <Route path={routes.frontend.contacto + '/*'} element={<ContactoPage />} />

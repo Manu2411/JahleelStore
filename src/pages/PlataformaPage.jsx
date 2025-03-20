@@ -1,8 +1,15 @@
+import { useEffect, useState } from 'react'
 import Carrousel from '../components/Carrousel'
 import Card from '../components/utils/Card'
 import { bannerImages, estiloImages } from '../utils/plataformaImages'
 
 const CatalogoPage = ({ isMobile }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       <Carrousel images={bannerImages} />
