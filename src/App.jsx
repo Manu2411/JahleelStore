@@ -40,7 +40,10 @@ function App() {
           path={routes.frontend.zapatillas + '/*'}
           element={<ZapatillasPage isMobile={movil} />}
         />
-        <Route path={routes.frontend.zapatos + '/*'} element={<ZapatosPage />} />
+        <Route
+          path={routes.frontend.zapatos + '/*'}
+          element={<ZapatosPage isMobile={movil} />}
+        />
         <Route path={routes.frontend.contacto + '/*'} element={<ContactoPage />} />
       </Routes>
     </>
