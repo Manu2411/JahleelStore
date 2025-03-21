@@ -10,6 +10,7 @@ const CatalogoPage = ({ isMobile }) => {
   useEffect(() => {
     window.scrollTo(0, 0)
 
+    // Retrasando el seteo de la variable setIsLoading
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 1500)
