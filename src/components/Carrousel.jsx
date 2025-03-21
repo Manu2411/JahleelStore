@@ -1,4 +1,16 @@
+import { useEffect, useRef, useState } from 'react'
+
 const Carrousel = ({ images }) => {
+  const [entrada, setEntrada] = useState(true)
+  const nextButtonRef = useRef(null)
+
+  useEffect(() => {
+    if (entrada && nextButtonRef.current) {
+      nextButtonRef.current.click() // Simula el clic en el botón
+      setEntrada(false) // Para evitar que se vuelva a ejecutar
+    }
+  }, [entrada])
+
   return (
     <>
       <div
@@ -31,6 +43,7 @@ const Carrousel = ({ images }) => {
             <span className='visually-hidden'>Previous</span>
           </button>
           <button
+            ref={nextButtonRef}
             className='carousel-control-next'
             type='button'
             data-bs-target='#carouselExampleAutoplaying'

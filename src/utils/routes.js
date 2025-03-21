@@ -6,6 +6,7 @@ const routesFrontend = Object.freeze({
   plataformas: contextFront + '/plataformas',
   sandalias: contextFront + '/sandalias',
   tacones: contextFront + '/tacones',
+  zapatillas: contextFront + '/zapatillas',
   zapatos: contextFront + '/zapatos',
   contacto: contextFront + '/contacto',
 })

@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import Carrousel from '../components/Carrousel'
 import Card from '../components/utils/Card'
-import { bannerImages, estiloImages } from '../utils/sandaliasImages'
+import Carrousel from '../components/Carrousel'
+import { bannerImages, estiloImages } from '../utils/zapatillasImages'
 
-const SandaliasPage = ({ isMobile }) => {
+const ZapatillasPage = ({ isMobile }) => {
   useEffect(() => {
     window.scrollTo(0, 0)
 
@@ -31,4 +31,4 @@ const SandaliasPage = ({ isMobile }) => {
   )
 }
 
-export default SandaliasPage
+export default ZapatillasPage

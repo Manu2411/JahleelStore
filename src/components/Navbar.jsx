@@ -1,9 +1,18 @@
+import { useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logoBlack from '../assets/img/logo.jpg'
 import { routes } from '../utils/routes'
 
 const Navbar = () => {
   const location = useLocation()
+  const navbarCollapseRef = useRef(null)
+
+  // Para cerrar el menú en la vista de móvil
+  const handleNavClick = () => {
+    if (navbarCollapseRef.current) {
+      navbarCollapseRef.current.classList.remove('show')
+    }
+  }
 
   return (
     <nav className='navbar sticky-top navbar-expand-lg bg-body-tertiary'>
@@ -31,7 +40,7 @@ const Navbar = () => {
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div className='collapse navbar-collapse' id='navbarNav'>
+        <div className='collapse navbar-collapse' id='navbarNav' ref={navbarCollapseRef}>
           <ul className='navbar-nav'>
             {/* <li className='nav-item'>
               <Link to={routes.frontend.home} className='nav-link' aria-current='page'>
@@ -44,6 +53,7 @@ const Navbar = () => {
                 className={`nav-link ${
                   location.pathname === routes.frontend.plataformas ? 'active-link' : ''
                 }`}
+                onClick={handleNavClick}
               >
                 Plataformas
               </Link>
@@ -54,6 +64,7 @@ const Navbar = () => {
                 className={`nav-link ${
                   location.pathname === routes.frontend.sandalias ? 'active-link' : ''
                 }`}
+                onClick={handleNavClick}
               >
                 Sandalias
               </Link>
@@ -64,8 +75,20 @@ const Navbar = () => {
                 className={`nav-link ${
                   location.pathname === routes.frontend.tacones ? 'active-link' : ''
                 }`}
+                onClick={handleNavClick}
               >
                 Tacones
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to={routes.frontend.zapatillas}
+                className={`nav-link ${
+                  location.pathname === routes.frontend.zapatillas ? 'active-link' : ''
+                }`}
+                onClick={handleNavClick}
+              >
+                Zapatillas
               </Link>
             </li>
             <li className='nav-item'>
@@ -74,6 +97,7 @@ const Navbar = () => {
                 className={`nav-link ${
                   location.pathname === routes.frontend.zapatos ? 'active-link' : ''
                 }`}
+                onClick={handleNavClick}
               >
                 Zapatos
               </Link>
@@ -84,6 +108,7 @@ const Navbar = () => {
                 className={`nav-link ${
                   location.pathname === routes.frontend.contacto ? 'active-link' : ''
                 }`}
+                onClick={handleNavClick}
               >
                 Contáctanos
               </Link>

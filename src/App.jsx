@@ -7,6 +7,7 @@ import SandaliasPage from './pages/SandaliasPage'
 import TaconesPage from './pages/TaconesPage'
 import ZapatosPage from './pages/ZapatosPage'
 import ContactoPage from './pages/ContactoPage'
+import ZapatillasPage from './pages/ZapatillasPage'
 
 function App() {
   const location = useLocation()
@@ -31,7 +32,14 @@ function App() {
           path={routes.frontend.sandalias + '/*'}
           element={<SandaliasPage isMobile={movil} />}
         />
-        <Route path={routes.frontend.tacones + '/*'} element={<TaconesPage />} />
+        <Route
+          path={routes.frontend.tacones + '/*'}
+          element={<TaconesPage isMobile={movil} />}
+        />
+        <Route
+          path={routes.frontend.zapatillas + '/*'}
+          element={<ZapatillasPage isMobile={movil} />}
+        />
         <Route path={routes.frontend.zapatos + '/*'} element={<ZapatosPage />} />
         <Route path={routes.frontend.contacto + '/*'} element={<ContactoPage />} />
       </Routes>
