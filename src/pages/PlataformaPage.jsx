@@ -3,9 +3,12 @@ import Carrousel from '../components/Carrousel'
 import Card from '../components/utils/Card'
 import Loader from '../components/Loader'
 import { bannerImages, estiloImages } from '../utils/plataformaImages'
+import ModalInfo from '../components/modal/ModalInfo'
+import ModalEstilosInfo from '../components/modal/ModalEstilosInfo'
 
 const CatalogoPage = ({ isMobile }) => {
   const [isLoading, setIsLoading] = useState(true)
+  const [modalMoreInfo, setModalMoreInfo] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -39,12 +42,25 @@ const CatalogoPage = ({ isMobile }) => {
                     imagen={estilo.src}
                     isMobile={isMobile}
                     link='Más información'
+                    setModalMoreInfo={setModalMoreInfo}
                   />
                 ))}
             </div>
           </div>
         </>
       )}
+
+      <ModalInfo
+        isOpen={modalMoreInfo}
+        setModalMoreInfo={setModalMoreInfo}
+        desktopWidth={'595px'}
+        desktopHeight={'450px'}
+        tabletHeight={'375px'}
+        mobileHeight={'350px'}
+        closeButton={true}
+      >
+        <ModalEstilosInfo setModalIsOpen={setModalMoreInfo} isMobile={isMobile} />
+      </ModalInfo>
     </>
   )
 }

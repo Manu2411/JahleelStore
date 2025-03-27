@@ -8,8 +8,10 @@ import TaconesPage from './pages/TaconesPage'
 import ZapatosPage from './pages/ZapatosPage'
 import ContactoPage from './pages/ContactoPage'
 import ZapatillasPage from './pages/ZapatillasPage'
+import ReactModal from 'react-modal'
 
 function App() {
+  ReactModal.setAppElement('#root')
   const location = useLocation()
 
   const movil = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
