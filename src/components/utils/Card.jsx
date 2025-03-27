@@ -2,7 +2,18 @@ import { Link, useLocation } from 'react-router-dom'
 
 const Card = (props) => {
   const location = useLocation()
-  const { title, body, link, ruta, isImage, imagen, isMobile, setModalMoreInfo } = props
+  const {
+    title,
+    body,
+    link,
+    ruta,
+    isImage,
+    imagen,
+    isMobile,
+    setModalMoreInfo,
+    estiloId,
+    setTipoEstilo,
+  } = props
 
   const style = {
     width: location.pathname !== '/webpruebas' && !isMobile ? '275px' : '',
@@ -35,6 +46,7 @@ const Card = (props) => {
                 className='btn btn-outline-primary'
                 onClick={() => {
                   setModalMoreInfo(true)
+                  setTipoEstilo(estiloId)
                 }}
               >
                 {link}

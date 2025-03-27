@@ -1,6 +1,7 @@
-import { IconCircleFilled } from '@tabler/icons-react'
+import { estilosInformacion } from '../../utils/plataformaImages'
+import Circle from '../utils/Circle'
 
-const ModalEstilosInfo = ({ setModalIsOpen, isMobile }) => {
+const ModalEstilosInfo = ({ setModalIsOpen, tipoEstilo, isMobile }) => {
   const infoTitleModalStyleDesk = {
     content: {
       fontSize: '55px',
@@ -57,33 +58,51 @@ const ModalEstilosInfo = ({ setModalIsOpen, isMobile }) => {
 
         <div className='d-flex flex-direction-row col-12 gap-3 mt-3'>
           <div className='d-flex gap-1 col-12'>
-            <table className='table table-bordered border border-dark-subtle'>
-              <thead>
-                <tr>
-                  <th scope='col'>#</th>
-                  <th scope='col'>Talla</th>
-                  <th scope='col'>Colores</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope='row'>3</th>
-                  <td>@twitter</td>
-                  <IconCircleFilled stroke={2} color='#019df4' size={40} />
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope='row'>3</th>
-                  <td>@twitter</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope='row'>3</th>
-                  <td>@twitter</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
+            {estilosInformacion.find((estilo) => estilo.estiloId === tipoEstilo) ? (
+              <table className='table table-bordered border border-dark-subtle'>
+                <thead>
+                  <tr>
+                    <th scope='col'>#</th>
+                    <th scope='col'>Talla</th>
+                    <th scope='col'>Colores</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {estilosInformacion
+                    .find((estilo) => estilo.estiloId === tipoEstilo)
+                    ?.tallas.map((talla, index) => (
+                      <tr key={`1-${talla}`}>
+                        <th scope='row'>{index + 1}</th>
+                        <td>{talla}</td>
+                        <td>
+                          <div className='d-flex gap-1'>
+                            {estilosInformacion
+                              .find((e) => e.estiloId === 1)
+                              ?.colores.map((color, i) => (
+                                <Circle
+                                  key={`${talla}-${i}`}
+                                  color={color}
+                                  isMobile={isMobile}
+                                />
+                              ))}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            ) : (
+              <h1
+                className='tangerine-bold'
+                style={
+                  isMobile
+                    ? infoTitleModalStylePho.content
+                    : infoTitleModalStyleDesk.content
+                }
+              >
+                Sin información del estilo
+              </h1>
+            )}
           </div>
         </div>
         <div

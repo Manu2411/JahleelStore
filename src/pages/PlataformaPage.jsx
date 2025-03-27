@@ -9,6 +9,7 @@ import ModalEstilosInfo from '../components/modal/ModalEstilosInfo'
 const CatalogoPage = ({ isMobile }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [modalMoreInfo, setModalMoreInfo] = useState(false)
+  const [tipoEstilo, setTipoEstilo] = useState()
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -43,6 +44,8 @@ const CatalogoPage = ({ isMobile }) => {
                     isMobile={isMobile}
                     link='Más información'
                     setModalMoreInfo={setModalMoreInfo}
+                    estiloId={estilo.id}
+                    setTipoEstilo={setTipoEstilo}
                   />
                 ))}
             </div>
@@ -59,7 +62,11 @@ const CatalogoPage = ({ isMobile }) => {
         mobileHeight={'350px'}
         closeButton={true}
       >
-        <ModalEstilosInfo setModalIsOpen={setModalMoreInfo} isMobile={isMobile} />
+        <ModalEstilosInfo
+          setModalIsOpen={setModalMoreInfo}
+          tipoEstilo={tipoEstilo}
+          isMobile={isMobile}
+        />
       </ModalInfo>
     </>
   )
